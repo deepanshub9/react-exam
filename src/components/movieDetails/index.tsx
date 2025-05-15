@@ -9,7 +9,7 @@ import { MovieDetailsProps } from "../../types/interfaces";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from '../movieReviews'
+import MovieReviews from '../movieReviews';
 
 const styles = {
     chipSet: {
@@ -32,8 +32,7 @@ const styles = {
 };
 
 const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
-
-    const [drawerOpen, setDrawerOpen] = useState(false); // New
+    const [drawerOpen, setDrawerOpen] = useState(false); 
 
     return (
         <>
@@ -57,15 +56,10 @@ const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
             </Paper>
             <Paper component="ul" sx={styles.chipSet}>
                 <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-                <Chip
-                    icon={<MonetizationIcon />}
-                    label={`${movie.revenue.toLocaleString()}`}
-                />
-                <Chip
-                    icon={<StarRate />}
-                    label={`${movie.vote_average} (${movie.vote_count}`}
-                />
+                <Chip icon={<MonetizationIcon />} label={`${movie.revenue.toLocaleString()}`} />
+                <Chip icon={<StarRate />} label={`${movie.vote_average} (${movie.vote_count})`} /> {/* ✅ Fixed missing closing parentheses */}
                 <Chip label={`Released: ${movie.release_date}`} />
+                <Chip label={`Original Language: ${movie.original_language.toUpperCase()}`} color="secondary" /> {/* ✅ Added Original Language */}
             </Paper>
             <Fab
                 color="secondary"
@@ -82,4 +76,5 @@ const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
         </>
     );
 };
+
 export default MovieDetails;

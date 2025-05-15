@@ -24,18 +24,23 @@ export interface BaseMovieListProps {
 }
 
 export interface MovieListPageTemplateProps extends BaseMovieListProps {
-  
   title: string;
-  
 }
 
+export interface MovieDetailsProps {
+  title: string;
+  overview: string;
+  runtime: number;
+  vote_average: number;
+  original_language: string;
+}
 
 export interface MovieDetailsProps extends BaseMovieProps {
   genres: {
     id: number;
     name: string;
   }[];
-  production_countries: { 
+  production_countries: {
     iso_3166_1: string;
     name: string;
   }[];
@@ -57,35 +62,35 @@ export interface MoviePageProps {
 }
 
 //export interface ListedMovieProps extends BaseMovieProps {
-  //genre_ids: number[];
+//genre_ids: number[];
 //}
 
 export type FilterOption = "title" | "genre";
 
-export interface Review{
+export interface Review {
   id: string;
-  content: string
-  author: string
+  content: string;
+  author: string;
 }
 
 export interface GenreData {
   genres: {
     id: string;
-    name: string
+    name: string;
   }[];
 }
 
 export interface DiscoverMovies {
-  page: number;	
+  page: number;
   total_pages: number;
   total_results: number;
   results: BaseMovieProps[];
 }
 
 export interface Review {
-  author: string,
-  content: string,
-  agree: boolean,
-  rating: number,
-  movieId: number,
+  author: string;
+  content: string;
+  agree: boolean;
+  rating: number;
+  movieId: number;
 }
