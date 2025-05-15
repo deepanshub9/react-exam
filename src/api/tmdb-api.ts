@@ -62,3 +62,10 @@ export const getMovies = () => {
         return json.results;
       });
   };
+  export const getTrendingMovies = async () => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/trending/movie/week?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  );
+  if (!response.ok) throw new Error(`Failed to fetch trending movies.`);
+  return response.json();
+};
